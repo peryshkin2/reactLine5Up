@@ -1,0 +1,22 @@
+.square{
+  height: 90px;
+  width: 90px;
+  font-size: 80px;
+  text-align: center;
+  vertical-align: middle;
+  border-style: dashed;
+ }
+.head{
+  height: 80px;
+  width: 90px;
+  font-size: 70px;
+  text-align: center;
+  vertical-align: middle;
+}
+.end-game{
+  color: red;
+}
+
+tr {
+   vertical-align:top;
+}
