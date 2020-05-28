@@ -244,13 +244,13 @@ function calculateWinner(squares,j) {
   // count diagonal left
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth+1){
-    if(k==rightEdge){length=0;}   
+    if(k===rightEdge){length=0;}   
     if(squares[k]===curType) { length++;}
     else { break;}
   }
-  if(j==leftEdge){length=0;}
+  if(j===leftEdge){length=0;}
   for(let k=j-(rowWidth+1);k>-1;k=k-(rowWidth+1)){
-    if(k==leftEdge){length=0;}
+    if(k===leftEdge){length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
@@ -259,13 +259,13 @@ function calculateWinner(squares,j) {
   // count diagonal right
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth-1){
-      if(k==leftEdge) {length=0;}
+      if(k===leftEdge) {length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
-  if(j==rightEdge){length=0;}
+  if(j===rightEdge){length=0;}
   for(let k=j-(rowWidth-1);k>-1;k=k-(rowWidth-1)){
-      if(k==rightEdge){length=0;}
+      if(k===rightEdge){length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
