@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-const rowWidth = 21;
-const columnDepth = 21;
+const rowWidth = 25;
+const columnDepth = 25;
 const winningLength_1 = 4;  // winning length -1 
 
 const fullBoard = rowWidth*columnDepth;
@@ -60,7 +60,7 @@ class Board extends React.Component {
       return (
         this.renderSquare(j*rowWidth+item)
       );
-    })]);
+    }), this.renderHead(j+1)]);
   }
   
   renderColumns() {
@@ -81,7 +81,10 @@ class Board extends React.Component {
           {this.renderHeadRow()}
         </div>       
         {this.renderColumns()}       
-      </div>
+      <div className="board-row">
+          {this.renderHeadRow()}
+        </div> 
+        </div>
     );
   }
 }
@@ -170,11 +173,29 @@ class Game extends React.Component {
         </td>
         <td>
         <div className="game-info">
+          <h2>&nbsp;&nbsp;Line 5 Up</h2> controls and rules <a href="#manual">below</a>
           <div className="end-game"><h2>&nbsp;&nbsp;{overMsg}</h2></div>
           <div><h2>&nbsp;&nbsp;{status}</h2></div>
           <ol>{moves}</ol>
         </div>
         </td>
+        </tr>
+        <tr colspan="2" id="manual">
+          <td>
+          This game is designed for two people playing on the same computer.<br/>
+
+To make next move player selected the squere by clicking on it. <br/>
+Program indicates the next move on the right upper corner. End of game indicated by red message "Game is Over".<br/>
+The first player to put 5-in-a-row wins! Row could be horisontal, vertical, or diagonal.<br/>
+Game could be ended by draw if all positions are taken. This is pretty unlikely.<br/>
+Program quetly ignore wrong clicks. It could be click outside sensible field.<br/>
+<br/>
+Program recorded all steps of game and it allowes to roll back  by clicking on corresponding step on right side of feild.<br/>
+You can resume game from any position. <br/>
+Game could be started from begining by reloading this page or click to "Go to game start" button on the right side.<br/>
+<br/>
+Have a fun!<br/>
+          </td>
         </tr>
       </table>
     );
@@ -192,7 +213,7 @@ function calculateWinner(squares,j) {
   
   const curType = squares[j];
   const leftEdge = j-(j%rowWidth);
-  const rightEdge = leftEdge+rowWidth;
+  const rightEdge = leftEdge+rowWidth-1;
   
   //alert("left and right Edge:"+leftEdge+" "+rightEdge);
   
