@@ -109,11 +109,10 @@ class Game extends React.Component {
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     
-    while(squares[j]) {
-        j-=rowWidth;			// set up "gravity"
-        if(j<0){ return; }	// do not handle Click if top row filled
+    if(squares[j]) {
+        return; 	// do not handle Click if swuare filled
     }
-    //alert("handleClic j="+j);
+
     squares[j] = this.state.xIsNext ? 'X' : 'O';
     let localWinner = this.state.winner;
     if (calculateWinner(squares,j)) {
@@ -231,6 +230,12 @@ function calculateWinner(squares,j) {
   // count vertical length
   length = 0;
   for(let k=j; k<fullBoard; k=k+rowWidth){
+    if(j>fullBoard-rowWidth-1){length=0;}
+    if(squares[k]===curType) {length++;}
+    else { break;}
+  }
+  if(j>fullBoard-rowWidth-1){length=0;}
+  for(let k=j-rowWidth; k>-1; k=k-rowWidth){
     if(squares[k]===curType) {length++;}
     else { break;}
   }
@@ -239,10 +244,13 @@ function calculateWinner(squares,j) {
   // count diagonal left
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth+1){
+    if(k==rightEdge){length=0;}   
     if(squares[k]===curType) { length++;}
     else { break;}
   }
+  if(j==leftEdge){length=0;}
   for(let k=j-(rowWidth+1);k>-1;k=k-(rowWidth+1)){
+    if(k==leftEdge){length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
@@ -251,10 +259,13 @@ function calculateWinner(squares,j) {
   // count diagonal right
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth-1){
+      if(k==leftEdge) {length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
+  if(j==rightEdge){length=0;}
   for(let k=j-(rowWidth-1);k>-1;k=k-(rowWidth-1)){
+      if(k==rightEdge){length=0;}
     if(squares[k]===curType) { length++;}
     else { break;}
   }
