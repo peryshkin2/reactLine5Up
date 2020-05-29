@@ -183,7 +183,7 @@ class Game extends React.Component {
           <td>
           This game is designed for two people playing on the same computer.<br/>
 
-To make next move player selected the squere by clicking on it. <br/>
+To make next move player selected the square by clicking on it. <br/>
 Program indicates the next move on the right upper corner. End of game indicated by red message "Game is Over".<br/>
 The first player to put 5-in-a-row wins! Row could be horisontal, vertical, or diagonal.<br/>
 Game could be ended by draw if all positions are taken. This is pretty unlikely.<br/>
