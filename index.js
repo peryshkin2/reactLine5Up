@@ -185,13 +185,13 @@ class Game extends React.Component {
 
 To make next move player selected the square by clicking on it. <br/>
 Program indicates the next move on the right upper corner. End of game indicated by red message "Game is Over".<br/>
-The first player to put 5-in-a-row wins! Row could be horisontal, vertical, or diagonal.<br/>
+The first player to put 5-in-a-row wins! Row could be horizontal, vertical, or diagonal.<br/>
 Game could be ended by draw if all positions are taken. This is pretty unlikely.<br/>
-Program quetly ignore wrong clicks. It could be click outside sensible field.<br/>
+Program quietly ignore wrong clicks. It could be click outside sensible field.<br/>
 <br/>
-Program recorded all steps of game and it allowes to roll back  by clicking on corresponding step on right side of feild.<br/>
+Program recorded all steps of game and it allows to roll back  by clicking on corresponding step on right side of field.<br/>
 You can resume game from any position. <br/>
-Game could be started from begining by reloading this page or click to "Go to game start" button on the right side.<br/>
+Game could be started from beginning by reloading this page or click to "Go to game start" button on the right side.<br/>
 <br/>
 Have a fun!<br/>
           </td>
