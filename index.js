@@ -223,20 +223,29 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType)  length++;
     else  {
       if( length>winningLength_1) { return curType; }
-      length=0;}
+      length=0;
+    }
   }
   if( length>winningLength_1) { return curType; }
 
   // count vertical length
   length = 0;
   for(let k=j; k<fullBoard; k=k+rowWidth){
-    if(j>fullBoard-rowWidth-1){length=0;}
-    if(squares[k]===curType) {length++;}
+    
+    if(squares[k]===curType) {
+        length++;
+        if( length>winningLength_1) { return curType; }
+    
+    }
     else { break;}
   }
-  if(j>fullBoard-rowWidth-1){length=0;}
+  if(j>fullBoard-rowWidth-1){length=1;}
   for(let k=j-rowWidth; k>-1; k=k-rowWidth){
-    if(squares[k]===curType) {length++;}
+    if(squares[k]===curType) {
+        length++;
+        if( length>winningLength_1) { return curType; }
+    
+    }
     else { break;}
   }
   if( length>winningLength_1) { return curType; }
@@ -244,14 +253,22 @@ function calculateWinner(squares,j) {
   // count diagonal left
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth+1){
-    if(k===rightEdge){length=0;}   
-    if(squares[k]===curType) { length++;}
+      
+    if(squares[k]===curType) {
+        length++;
+        if( length>winningLength_1) { return curType; }
+        if(k===rightEdge){break;} 
+    }
     else { break;}
   }
-  if(j===leftEdge){length=0;}
+  if(j===leftEdge){length=1;}
   for(let k=j-(rowWidth+1);k>-1;k=k-(rowWidth+1)){
     if(k===leftEdge){length=0;}
-    if(squares[k]===curType) { length++;}
+    if(squares[k]===curType) {
+        length++;
+        if( length>winningLength_1) { return curType; }
+        
+    }
     else { break;}
   }
   if( length>winningLength_1) { return curType; }
@@ -260,13 +277,21 @@ function calculateWinner(squares,j) {
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth-1){
       if(k===leftEdge) {length=0;}
-    if(squares[k]===curType) { length++;}
+    if(squares[k]===curType) {
+        length++;
+        if( length>winningLength_1) { return curType; }
+        
+    }
     else { break;}
   }
-  if(j===rightEdge){length=0;}
+  if(j===rightEdge){length=1;}
   for(let k=j-(rowWidth-1);k>-1;k=k-(rowWidth-1)){
       if(k===rightEdge){length=0;}
-    if(squares[k]===curType) { length++;}
+    if(squares[k]===curType) {
+        length++;
+    if( length>winningLength_1) { return curType; }
+    
+    }
     else { break;}
   }
   if( length>winningLength_1) { return curType; }
