@@ -264,7 +264,7 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        if(k===right(k)){break;} 
+        if(k===rightE(k)){break;} 
     }
     else { break;}
   }
