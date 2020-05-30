@@ -208,6 +208,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+function leftE(kk){
+    return (kk-(kk%rowWidth));
+}
+function rightE(kk){
+    return ( kk-(kk%rowWidth)+rowWidth-1);
+}
+
 function calculateWinner(squares,j) {
   
   const curType = squares[j];
@@ -257,7 +264,7 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        if(k===rightEdge){break;} 
+        if(k===right(k)){break;} 
     }
     else { break;}
   }
@@ -267,7 +274,7 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        if(k===leftEdge){break;}
+        if(k===leftE(k)){break;}
     }
     else { break;}
   }
@@ -280,7 +287,7 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        if(k===leftEdge) {break;}
+        if(k===leftE(k)) {break;}
     }
     else { break;}
   }
@@ -290,7 +297,7 @@ function calculateWinner(squares,j) {
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        if(k===rightEdge){break;}
+        if(k===rightE(k)){break;}
     }
     else { break;}
   }
