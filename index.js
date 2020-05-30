@@ -218,7 +218,7 @@ function calculateWinner(squares,j) {
   
   // count holizontal length
   let length = 0;
-  for(let k=leftEdge;k<rightEdge;k++){
+  for(let k=leftEdge;k<rightEdge+1;k++){
   //alert("1 j="+j+" k="+k+" length="+length);
     if(squares[k]===curType)  length++;
     else  {
