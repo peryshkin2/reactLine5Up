@@ -263,11 +263,11 @@ function calculateWinner(squares,j) {
   }
   if(j===leftEdge){length=1;}
   for(let k=j-(rowWidth+1);k>-1;k=k-(rowWidth+1)){
-    if(k===leftEdge){length=0;}
+    
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        
+        if(k===leftEdge){break;}
     }
     else { break;}
   }
@@ -276,21 +276,21 @@ function calculateWinner(squares,j) {
   // count diagonal right
   length = 0;
   for(let k=j;k<fullBoard;k=k+rowWidth-1){
-      if(k===leftEdge) {length=0;}
+      
     if(squares[k]===curType) {
         length++;
         if( length>winningLength_1) { return curType; }
-        
+        if(k===leftEdge) {break;}
     }
     else { break;}
   }
   if(j===rightEdge){length=1;}
   for(let k=j-(rowWidth-1);k>-1;k=k-(rowWidth-1)){
-      if(k===rightEdge){length=0;}
+      
     if(squares[k]===curType) {
         length++;
-    if( length>winningLength_1) { return curType; }
-    
+        if( length>winningLength_1) { return curType; }
+        if(k===rightEdge){break;}
     }
     else { break;}
   }
